@@ -1,13 +1,16 @@
+/* title part start */
 .title-name{
     color:sandybrown;
     font-size: 50px;
     text-align: center;
     margin-top: 15px;
 }
+/* img part start */
 .half-width img{
     width: 100%;
     height: 35em;
 }
+/* input part start */
 input{
     background-color: rgba(128, 128, 128, 0.246);
     border: none;
@@ -16,17 +19,4 @@ input{
 .inputField{
     background-color: rgba(211, 211, 211, 0.219);
 }
-.notify {
-    color: #fff;
-    text-align: center;
-    margin: 0 auto;
-    background: lightslategray;
-    margin-top: 20px;
-    border-radius: 15px;
-    padding: 5px 20px;
-    display: none;
-}
-.notify-section{
-    width: 35%;
-    margin: 0 auto;
-}
+
