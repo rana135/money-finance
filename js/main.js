@@ -29,15 +29,30 @@ function calculateFunction(){
 
 
 //percent part start:-
+// saveInput.addEventListener('click', reserveMoney);
+//    function reserveMoney(){
+//        const incomeValue = parseInt(inputIncome.value);
+//     const percentText = parseInt(percentInput.value);
+//     let percentNum = incomeValue / 100;
+//     const saveAmount = percentNum * percentText;
+//     if(saveAmount < calculateFunction()){
+//         saveMoney.innerText =saveAmount;
+//         remBalance.innerText = calculateFunction() - saveAmount;
+//     }
+//     else{
+//         alert('There is not enough balance in your account.')
+//     }
+// }
+
+
 saveInput.addEventListener('click', reserveMoney);
    function reserveMoney(){
        const incomeValue = parseInt(inputIncome.value);
     const percentText = parseInt(percentInput.value);
-    let percentNum = incomeValue / 100;
-    const saveAmount = percentNum * percentText;
-    if(saveAmount < calculateFunction()){
-        saveMoney.innerText =saveAmount;
-        remBalance.innerText = calculateFunction() - saveAmount;
+    let percentNum = (incomeValue / 100)*percentText;
+    if(percentNum < calculateFunction()){
+        saveMoney.innerText =percentNum;
+        remBalance.innerText = calculateFunction() - percentNum;
     }
     else{
         alert('There is not enough balance in your account.')
@@ -45,5 +60,15 @@ saveInput.addEventListener('click', reserveMoney);
 }
 
 
-   
+
+
+//error handaling:-
+// const failedError = document.getElementById('notify-failed');
+// else{
+//     failedError.style.display = 'block';
+// }
+    
+
+
+
 
