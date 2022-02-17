@@ -12,52 +12,58 @@ const remBalance = document.getElementById("rem-balance");
 
 
 calculateButton.addEventListener('click', calculateFunction);
-function calculateFunction(){
+function calculateFunction() {
     const foodExpenses = parseInt(inputFood.value);
     const rentExpenses = parseInt(inputRent.value);
     const clothesExpenses = parseInt(inputClothes.value);
     const total = foodExpenses + rentExpenses + clothesExpenses;
     totalExpenses.innerText = total;
     const inputValue = parseInt(inputIncome.value);
-    // balance part start:-
-    const newBalance =  inputValue - total;
-    balance.innerText = newBalance;
-    const finalBalance = balance.innerText;
-    return finalBalance;
+    if (inputValue >= total) {
+        // balance part start:-
+        const newBalance = inputValue - total;
+        balance.innerText = newBalance;
+        const finalBalance = balance.innerText;
+        return finalBalance;
+    }
+    else{
+        alert('There is not enough balance in your account.')
+    }
+
 }
 
 
 
-//percent part start:-
+// percent part start:-
+saveInput.addEventListener('click', reserveMoney);
+function reserveMoney() {
+    const incomeValue = parseInt(inputIncome.value);
+    const percentText = parseInt(percentInput.value);
+    let percentNum = incomeValue / 100;
+    const saveAmount = percentNum * percentText;
+    if (saveAmount < calculateFunction()) {
+        saveMoney.innerText = saveAmount;
+        remBalance.innerText = calculateFunction() - saveAmount;
+    }
+    else {
+        alert('There is not enough balance in your account.')
+    }
+}
+
+
 // saveInput.addEventListener('click', reserveMoney);
 //    function reserveMoney(){
 //        const incomeValue = parseInt(inputIncome.value);
 //     const percentText = parseInt(percentInput.value);
-//     let percentNum = incomeValue / 100;
-//     const saveAmount = percentNum * percentText;
-//     if(saveAmount < calculateFunction()){
-//         saveMoney.innerText =saveAmount;
-//         remBalance.innerText = calculateFunction() - saveAmount;
+//     let percentNum = (incomeValue / 100)*percentText;
+//     if(percentNum < calculateFunction()){
+//         saveMoney.innerText =percentNum;
+//         remBalance.innerText = calculateFunction() - percentNum;
 //     }
 //     else{
 //         alert('There is not enough balance in your account.')
 //     }
 // }
-
-
-saveInput.addEventListener('click', reserveMoney);
-   function reserveMoney(){
-       const incomeValue = parseInt(inputIncome.value);
-    const percentText = parseInt(percentInput.value);
-    let percentNum = (incomeValue / 100)*percentText;
-    if(percentNum < calculateFunction()){
-        saveMoney.innerText =percentNum;
-        remBalance.innerText = calculateFunction() - percentNum;
-    }
-    else{
-        alert('There is not enough balance in your account.')
-    }
-}
 
 
 
@@ -67,7 +73,7 @@ saveInput.addEventListener('click', reserveMoney);
 // else{
 //     failedError.style.display = 'block';
 // }
-    
+
 
 
 
